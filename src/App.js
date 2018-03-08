@@ -7,23 +7,22 @@ class App extends Component {
   constructor(props){
     super(props)
     this.state = {
-      nimi: []
+      todos: []
     }
   }
 
   componentDidMount() {
-      let self = this;
-      fetch('/matti', {
-        method: 'GET'
-      }).then(function(response) {
-            if (response.status >= 400) {
-                throw new Error("Bad response from server");
-            }
-            return response.json();
-        }).then(function(data) {
-            self.setState({nimi: data});
-        }).catch(err => {
-        console.log('caught it!',err);
+      console.log('Mount operation');
+      var that = this;
+      fetch('list',{method: 'GET'})
+        .then(function(response){
+          response.json()
+          .then(function(data){
+            console.log(data);
+            that.setState({
+              todos: data
+             })
+          })
         })
   }
 
@@ -62,17 +61,31 @@ class App extends Component {
     }
 
 
+    let todos = this.state.todos;
     return (
+      
       <div>
           <Navbar />
+
           <div className="App">
-            
-            <p className="App-intro">
-             {this.state.nimi}
-            </p>
+
+            <div className="container">
+              <h1>List of activities</h1>
+              <table className=" table table-striped">
+                <thead>
+                  <tr>
+                    <th>Description</th>
+                    <th>Owner</th>
+                  </tr> 
+                </thead>
+                <tbody>
+                  {todos.map((todo) => <tr><td key={todo.id}>{todo.name}</td><td>{todo.owner}</td></tr>)}
+                </tbody>
+              </table>
+            </div>
           </div>
           <Footer />
-      </div>
+          </div>
     );
   }
 }
