@@ -6,6 +6,7 @@ class App extends Component {
 
   constructor(props){
     super(props)
+    this.addTodo = this.addTodo.bind(this);
     this.state = {
       todos: []
     }
@@ -27,6 +28,54 @@ class App extends Component {
   }
 
  
+  addTodo(event) {
+    event.preventDefault();
+    //console.log(this.refs);
+
+    //let name = this.refs.name.value;
+    //let owner = this.refs.owner.value;
+    var that = this;
+
+    let data = {
+      name: this.refs.name.value,
+      owner: this.refs.owner.value
+    };
+
+    console.log(data);
+    console.log("----lähetettävä data----");
+
+    var request = new Request('http://localhost:3000/insert', {
+      method: 'POST',
+      headers: new Headers({'Content-Type': 'application/json'}),
+      body: JSON.stringify(data)  
+    });
+
+    fetch(request)
+      .then(function(response) {
+        response.json()
+          .then(function(data) {
+            console.log(data);
+             
+          })
+      })
+    
+    
+    // New listing after DB transaction
+    fetch('list',{method: 'GET'})
+        .then(function(response){
+          response.json()
+          .then(function(data){
+            console.log(data);
+            that.setState({
+              todos: data
+             })
+          })
+        })
+    
+    this.refs.todoForm.reset();
+  }
+    
+
   render() {
     function Navbar() {
       return (
@@ -83,6 +132,22 @@ class App extends Component {
                 </tbody>
               </table>
             </div>
+            <br/><br/><br/><br/>
+
+            <form className="form-inline text-center"  ref="todoForm" action="/action_page.php">
+            <h4>Fill Task and Responsible Person. </h4>
+              <div className="form-group">
+                <label for="name">Description:</label>
+                <input type="text" ref="name" placeholder="Description" />
+              </div>
+              <div className="form-group">
+                <label for="owner">Owner:</label>
+                <input type="text" ref="owner" placeholder="Owner" />
+              </div>
+              <button onClick={this.addTodo}>Submit Task </button>
+            </form>
+
+
           </div>
           <Footer />
           </div>
