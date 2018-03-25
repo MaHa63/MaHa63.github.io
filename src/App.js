@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import logo from './images/todo_logo.jpg';
 import './App.css';
 
+//import Calendar from 'react-input-calendar';
+
+
 class App extends Component {
 
   constructor(props){
@@ -27,6 +30,49 @@ class App extends Component {
         })
   }
 
+
+  removeTodo(id) {
+    console.log(this);
+    var that = this;
+    let todos = this.state.todos;
+    let todo = todos.find(function(todo) {
+      return todo.id === id 
+    });
+
+    console.log(todo);
+
+    var request = new Request('http://localhost:3000/delete/' + id, {
+      method: 'DELETE',
+      headers: new Headers({'Content-Type': 'application/json'})
+    });
+
+    fetch (request)
+      .then(function(response) {
+          //todos.splice(todo, 1);
+          //that.setState({
+          //   todos: todos
+          //})
+          response.json()
+            .then(function(data) {
+              console.log(data);
+            })
+      })
+
+      // New listing after DB transaction
+    fetch('list',{method: 'GET'})
+        .then(function(response){
+          response.json()
+          .then(function(data){
+            console.log(data);
+            that.setState({
+              todos: data
+             })
+          })
+        })
+    
+    this.refs.todoForm.reset();
+
+  }
  
   addTodo(event) {
     event.preventDefault();
@@ -38,7 +84,8 @@ class App extends Component {
 
     let data = {
       name: this.refs.name.value,
-      owner: this.refs.owner.value
+      owner: this.refs.owner.value,
+      schedule: this.refs.schedule.value
     };
 
     console.log(data);
@@ -54,8 +101,7 @@ class App extends Component {
       .then(function(response) {
         response.json()
           .then(function(data) {
-            console.log(data);
-             
+            console.log(data);           
           })
       })
     
@@ -125,10 +171,12 @@ class App extends Component {
                   <tr>
                     <th>Description</th>
                     <th>Owner</th>
+                    <th>Deadline</th>
+                    <th>Action</th>
                   </tr> 
                 </thead>
                 <tbody>
-                  {todos.map((todo) => <tr><td key={todo.id}>{todo.name}</td><td>{todo.owner}</td></tr>)}
+                  {todos.map((todo) => <tr><td key={todo.id}>{todo.name}</td><td>{todo.owner}</td><td>{(new Date(todo.schedule)).toLocaleDateString()}</td> <td><button onClick={this.removeTodo.bind(this, todo.id)}>Delete</button> </td>     </tr>)}
                 </tbody>
               </table>
             </div>
@@ -140,10 +188,17 @@ class App extends Component {
                 <label for="name">Description:</label>
                 <input type="text" ref="name" placeholder="Description" />
               </div>
+              
               <div className="form-group">
                 <label for="owner">Owner:</label>
                 <input type="text" ref="owner" placeholder="Owner" />
               </div>
+
+              <div className="form-group">
+                <label for="schedule">Schedule:</label>
+                <input type="date" ref="schedule" placeholder="Schedule" />
+              </div>
+
               <button onClick={this.addTodo}>Submit Task </button>
             </form>
 
