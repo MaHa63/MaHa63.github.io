@@ -31,6 +31,7 @@ var config = {
 	user: 'bkdpaelazzgdzd',
 	database: 'debr17vi34otk2',
 	password: 'f5f64aadb78fffc890613416c3b40c1a6c4a2401d688ec84399d0ce3cd3bfcea',
+	host: 'ec2-23-21-217-27.compute-1.amazonaws.com',
 	port: 5432,
 	max: 10,
 	idleTimeoutMillis: 30000,
