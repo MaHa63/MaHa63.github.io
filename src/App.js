@@ -31,6 +31,7 @@ class App extends Component {
   }
 
 
+
   removeTodo(id) {
     console.log(this);
     var that = this;
