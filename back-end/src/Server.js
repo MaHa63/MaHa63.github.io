@@ -49,7 +49,7 @@ app.use(bodyParser.json());  // Ei ymmärrä muuten dataa Requestissa
 
 app.use(express.static('build'));
 
-app.delete('/delete/:id', function(request, response) {
+app.delete('/delete/:id', function(request, response, next) {
 	var id = request.params.id;
 	console.log("Serverissä: DELETE ");
 	console.log(id);
