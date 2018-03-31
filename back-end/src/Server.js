@@ -131,10 +131,12 @@ app.post('/insert', function(request, response, next){
 				done();
 
 				if(err) {
+					console.log('INSERTION FAILED');
 					return response.status(400).send(err);
+
 				} else {
-					return response.status(200).send({message: 'success in delete record'})
 					console.log('DATA INSERTED');
+					return response.status(200).send({message: 'success in delete record'})
 				}
 			})
 			
