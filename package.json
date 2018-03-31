@@ -15,7 +15,7 @@
     "react-scripts": "1.1.1"
   },
   "scripts": {
-    "start": "concurrently \"PORT=8080 node back-end/src/Server.js\" \"PORT=3000 react-scripts start\"",
+    "start": "concurrently \"node back-end/src/Server.js\" \"react-scripts start\"",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
