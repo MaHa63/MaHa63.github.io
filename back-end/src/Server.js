@@ -5,7 +5,7 @@ const path = require('path');
 const cors = require('cors');
 const app = express();
 
-const connectionString = "postgres://postgres:salasana@localhost:5432/ToDo";
+//const connectionString = "postgres://postgres:salasana@localhost:5432/ToDo";
 
 var config = {
 	user: 'postgres',
