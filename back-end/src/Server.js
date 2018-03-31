@@ -27,7 +27,9 @@ var config = {
 	idleTimeoutMillis: 30000,
 };
 
-const connectionString = "postgres://bkdpaelazzgdzd:f5f64aadb78fffc890613416c3b40c1a6c4a2401d688ec84399d0ce3cd3bfcea@localhost:5432/mtodo";
+//const connectionString = "postgres://bkdpaelazzgdzd:f5f64aadb78fffc890613416c3b40c1a6c4a2401d688ec84399d0ce3cd3bfcea@localhost:5432/mtodo";
+
+const connectionString = "postgres://bkdpaelazzgdzd:f5f64aadb78fffc890613416c3b40c1a6c4a2401d688ec84399d0ce3cd3bfcea@ec2-23-21-217-27.compute-1.amazonaws.com:5432/debr17vi34otk2"
 
 app.use(cors()); // Express delete toiminto vaatii
 
