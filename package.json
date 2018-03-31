@@ -15,7 +15,7 @@
     "react-scripts": "1.1.1"
   },
   "scripts": {
-    "start": "concurrently \"node back-end/src/Server.js\" \"react-scripts start\"",
+    "start": "concurrently \"NODE_ENV=production node back-end/src/Server.js\" \"npm run build\"",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
