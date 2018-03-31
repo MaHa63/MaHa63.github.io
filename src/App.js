@@ -92,7 +92,7 @@ class App extends Component {
     console.log(data);
     console.log("----lähetettävä data----");
 
-    var request = new Request('http://localhost:3000/insert', {
+    var request = new Request('/insert', {
       method: 'POST',
       headers: new Headers({'Content-Type': 'application/json'}),
       body: JSON.stringify(data)  
