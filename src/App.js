@@ -42,7 +42,7 @@ class App extends Component {
 
     console.log(todo);
 
-    var request = new Request('https://mtodo.herokuapp.com:3000/delete/' + id, {
+    var request = new Request('/delete/' + id, {
       method: 'DELETE',
       headers: new Headers({'Content-Type': 'application/json'})
     });
