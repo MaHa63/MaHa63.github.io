@@ -20,7 +20,9 @@ app.use(cors()); // Express delete toiminto vaatii
 
 app.use(bodyParser.json());  // Ei ymmärrä muuten dataa Requestissa
 
-app.use(express.static(path.join(__dirname, 'build')));
+//app.use(express.static(path.join(__dirname, 'build')));
+
+app.use(express.static('build'));
 
 app.delete('/delete/:id', function(request, response) {
 	var id = request.params.id;
