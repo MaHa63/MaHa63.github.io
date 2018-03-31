@@ -18,10 +18,19 @@ var config = {
 
 //const connectionString = "postgres://postgres:salasana@localhost:5432/ToDo";
 
+//var config = {
+//	user: 'postgres',
+//	database: 'ToDo',
+//	password: 'salasana',
+//	port: 5432,
+//	max: 10,
+//	idleTimeoutMillis: 30000,
+//};
+
 var config = {
-	user: 'postgres',
-	database: 'ToDo',
-	password: 'salasana',
+	user: bkdpaelazzgdzd ,
+	database: debr17vi34otk2,
+	password: f5f64aadb78fffc890613416c3b40c1a6c4a2401d688ec84399d0ce3cd3bfcea ,
 	port: 5432,
 	max: 10,
 	idleTimeoutMillis: 30000,
