@@ -146,7 +146,7 @@ app.post('/insert', function(request, response, next){
 
 app.get('/', function (req, res) {
 	//res.sendFile(path.join(__dirname, 'build', 'index.html'));
-	res.sendFile('/src/index.js',{ root: '.'});
+	res.sendFile('/public/index.html',{ root: '.'});
 });
 
 
