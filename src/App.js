@@ -135,13 +135,16 @@ class App extends Component {
             
             <ul className="nav navbar-nav">
               <li className="active"><a href="#">Main</a></li>
-              <li className="active"><a href="#">Tasks</a></li>
-              <li className="active"><a href="#">Users</a></li>
+              {/* <li className="active"><a href="#">Tasks</a></li> */}
+              {/* <li className="active"><a href="#">Users</a></li> */}
             </ul>
 
-            <ul className="nav navbar-nav navbar-right"> 
-              <li><a href="#">Login</a></li>
-            </ul>
+            
+            {/* <ul className="nav navbar-nav navbar-right"> */} 
+            {/*  <li><a href="#">Login</a></li> */}
+            {/* </ul> */}
+            
+
             </div>
         </nav> 
       );
