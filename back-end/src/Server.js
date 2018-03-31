@@ -73,6 +73,9 @@ app.delete('/delete/:id', function(request, response) {
 	});
 });
 
+
+
+
 app.get('/list', function(request, response, next) {
 	console.log('Serverissä: LIST');
 
@@ -142,7 +145,8 @@ app.post('/insert', function(request, response, next){
 });
 
 app.get('/', function (req, res) {
-	res.sendFile(path.join(__dirname, 'build', 'index.html'));
+	//res.sendFile(path.join(__dirname, 'build', 'index.html'));
+	res.sendFile('build','index.html');
 });
 
 
