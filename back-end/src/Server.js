@@ -16,6 +16,19 @@ var config = {
 	idleTimeoutMillis: 30000,
 };
 
+//const connectionString = "postgres://postgres:salasana@localhost:5432/ToDo";
+
+var config = {
+	user: 'postgres',
+	database: 'ToDo',
+	password: 'salasana',
+	port: 5432,
+	max: 10,
+	idleTimeoutMillis: 30000,
+};
+
+const connectionString = "postgres://bkdpaelazzgdzd:f5f64aadb78fffc890613416c3b40c1a6c4a2401d688ec84399d0ce3cd3bfcea@localhost:5432/mtodo";
+
 app.use(cors()); // Express delete toiminto vaatii
 
 app.use(bodyParser.json());  // Ei ymmärrä muuten dataa Requestissa
