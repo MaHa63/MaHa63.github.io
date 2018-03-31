@@ -28,9 +28,9 @@ var config = {
 //};
 
 var config = {
-	user: bkdpaelazzgdzd ,
-	database: debr17vi34otk2,
-	password: f5f64aadb78fffc890613416c3b40c1a6c4a2401d688ec84399d0ce3cd3bfcea ,
+	user: 'bkdpaelazzgdzd',
+	database: 'debr17vi34otk2',
+	password: 'f5f64aadb78fffc890613416c3b40c1a6c4a2401d688ec84399d0ce3cd3bfcea',
 	port: 5432,
 	max: 10,
 	idleTimeoutMillis: 30000,
