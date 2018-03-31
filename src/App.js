@@ -204,7 +204,7 @@ class App extends Component {
               </div>
 
               <button onClick={this.addTodo}>Submit Task </button>
-              <br/><br/><br/><br/
+              <br/><br/><br/><br/>
             </form>
 
 
