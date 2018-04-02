@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import logo from './images/todo_logo.jpg';
-import './App.css';
+import React from 'react';
+//import logo from './images/todo_logo.jpg';
+//import './App.css';
 
 //import Calendar from 'react-input-calendar';
 
-
+/*
 class App extends Component {
 
   constructor(props){
@@ -37,7 +37,7 @@ class App extends Component {
     var that = this;
     let todos = this.state.todos;
     let todo = todos.find(function(todo) {
-      return todo.id === id 
+      return todo.id === id
     });
 
     console.log(todo);
@@ -70,11 +70,11 @@ class App extends Component {
              })
           })
         })
-    
+
     this.refs.todoForm.reset();
 
   }
- 
+
   addTodo(event) {
     event.preventDefault();
     //console.log(this.refs);
@@ -95,18 +95,18 @@ class App extends Component {
     var request = new Request('/insert', {
       method: 'POST',
       headers: new Headers({'Content-Type': 'application/json'}),
-      body: JSON.stringify(data)  
+      body: JSON.stringify(data)
     });
 
     fetch(request)
       .then(function(response) {
         response.json()
           .then(function(data) {
-            console.log(data);           
+            console.log(data);
           })
       })
-    
-    
+
+
     // New listing after DB transaction
     fetch('list',{method: 'GET'})
         .then(function(response){
@@ -118,10 +118,10 @@ class App extends Component {
              })
           })
         })
-    
+
     this.refs.todoForm.reset();
   }
-    
+
 
   render() {
     function Navbar() {
@@ -133,21 +133,21 @@ class App extends Component {
                 <img src={logo} width={35} alt="" />
               </a>
             </div>
-            
+
             <ul className="nav navbar-nav">
               <li className="active"><a href="#">Main</a></li>
-              {/* <li className="active"><a href="#">Tasks</a></li> */}
-              {/* <li className="active"><a href="#">Users</a></li> */}
+              {/* <li className="active"><a href="#">Tasks</a></li> * /}
+              {/* <li className="active"><a href="#">Users</a></li> * /}
             </ul>
 
-            
-            {/* <ul className="nav navbar-nav navbar-right"> */} 
-            {/*  <li><a href="#">Login</a></li> */}
-            {/* </ul> */}
-            
+
+            {/* <ul className="nav navbar-nav navbar-right"> * /}
+            {/*  <li><a href="#">Login</a></li> * /}
+            {/* </ul> * /}
+
 
             </div>
-        </nav> 
+        </nav>
       );
     }
 
@@ -162,7 +162,7 @@ class App extends Component {
 
     let todos = this.state.todos;
     return (
-      
+
       <div>
           <Navbar />
 
@@ -177,7 +177,7 @@ class App extends Component {
                     <th>Owner</th>
                     <th>Deadline</th>
                     <th>Action</th>
-                  </tr> 
+                  </tr>
                 </thead>
                 <tbody>
                   {todos.map((todo) => <tr><td key={todo.id}>{todo.name}</td><td>{todo.owner}</td><td>{(new Date(todo.schedule)).toLocaleDateString()}</td> <td><button onClick={this.removeTodo.bind(this, todo.id)}>Delete</button> </td>     </tr>)}
@@ -192,7 +192,7 @@ class App extends Component {
                 <label for="name">Description:</label>
                 <input type="text" ref="name" placeholder="Description" />
               </div>
-              
+
               <div className="form-group">
                 <label for="owner">Owner:</label>
                 <input type="text" ref="owner" placeholder="Owner" />
@@ -216,3 +216,4 @@ class App extends Component {
 }
 
 export default App;
+*/
