@@ -82,7 +82,7 @@ class App extends Component {
   }
  
   listTodo() {
-    setTimeout(function(){for(var i = 0 ; i < 100000; i++);},1000);
+    setTimeout(function(){for(var i = 0 ; i < 100000; i++){ let a = 0 };},1000);
     fetch('list',{method: 'GET'})
         .then(function(response){
           response.json()
@@ -129,7 +129,7 @@ class App extends Component {
     
     // New listing after DB transaction
     
-    setTimeout(function(){for(var i = 0 ; i < 100000; i++);},1000);
+    setTimeout(function(){for(var i = 0 ; i < 100000; i++){ let a = 0 };},1000);
     fetch('list',{method: 'GET'})
         .then(function(response){
           response.json()
