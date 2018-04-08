@@ -216,7 +216,7 @@ class App extends Component {
           <div className="App">
 
             <div className="container">
-              <h1>Task Lists</h1>
+              <h1>Task List</h1>
               <table className=" table table-striped">
                 <thead>
                   <tr>
