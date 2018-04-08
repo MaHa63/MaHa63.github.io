@@ -7,14 +7,14 @@ const app = express();
 
 //const connectionString = "postgres://postgres:salasana@localhost:5432/ToDo";
 
-var config = {
-	user: 'postgres',
-	database: 'ToDo',
-	password: 'salasana',
-	port: 5432,
-	max: 10,
-	idleTimeoutMillis: 30000,
-};
+//var config = {
+//	user: 'postgres',
+//	database: 'ToDo',
+//	password: 'salasana',
+//	port: 5432,
+//	max: 10,
+//	idleTimeoutMillis: 30000,
+//};
 
 //const connectionString = "postgres://postgres:salasana@localhost:5432/ToDo";
 
@@ -104,7 +104,7 @@ app.get('/list', function(request, response, next) {
 				console.log("not able to query data" + err);
 				response.status(400).send(err);
 			}
-			//console.log(result.rows);
+			console.log('DATA RETRIEVED');
 			response.status(200).send(result.rows);
 		});
 		pool.end();
@@ -136,7 +136,7 @@ app.post('/insert', function(request, response, next){
 
 				} else {
 					console.log('DATA INSERTED');
-					return response.status(200).send({message: 'success in delete record'})
+					return response.status(200).send({message: 'success in insert record'})
 				}
 			})
 			

@@ -60,6 +60,9 @@ class App extends Component {
       })
 
       // New listing after DB transaction
+
+      
+    setTimeout(function(){for(var i = 0 ; i < 100000; i++);},1000);
     fetch('list',{method: 'GET'})
         .then(function(response){
           response.json()
@@ -71,10 +74,27 @@ class App extends Component {
           })
         })
     
+    
+  
+
     this.refs.todoForm.reset();
 
   }
  
+  listTodo() {
+    setTimeout(function(){for(var i = 0 ; i < 100000; i++);},1000);
+    fetch('list',{method: 'GET'})
+        .then(function(response){
+          response.json()
+          .then(function(data){
+            console.log(data);
+            this.setState({
+              todos: data
+             })
+          })
+        })
+  }
+
   addTodo(event) {
     event.preventDefault();
     //console.log(this.refs);
@@ -108,6 +128,8 @@ class App extends Component {
     
     
     // New listing after DB transaction
+    
+    setTimeout(function(){for(var i = 0 ; i < 100000; i++);},1000);
     fetch('list',{method: 'GET'})
         .then(function(response){
           response.json()
@@ -119,6 +141,7 @@ class App extends Component {
           })
         })
     
+
     this.refs.todoForm.reset();
   }
     
@@ -159,8 +182,28 @@ class App extends Component {
       );
     }
 
+    function CompareDates(date) {
+      let curDate = new Date();
+      let compDate = new Date(date);
+      console.log('curDate=',curDate.toLocaleDateString());
+      console.log('compDate=',compDate.toLocaleDateString());
+      if (compDate > curDate ) {
+          console.log('black');
+          return ('black');
+      }
+     console.log('red');
+     return ('red');
+    
+    }
+
+  
+    function ShowTasks() {
+     
+    }
 
     let todos = this.state.todos;
+    let curDate = new Date();
+
     return (
       
       <div>
@@ -169,7 +212,7 @@ class App extends Component {
           <div className="App">
 
             <div className="container">
-              <h1>List of activities</h1>
+              <h1>Task Lists</h1>
               <table className=" table table-striped">
                 <thead>
                   <tr>
@@ -179,15 +222,15 @@ class App extends Component {
                     <th>Action</th>
                   </tr> 
                 </thead>
-                <tbody>
-                  {todos.map((todo) => <tr><td key={todo.id}>{todo.name}</td><td>{todo.owner}</td><td>{(new Date(todo.schedule)).toLocaleDateString()}</td> <td><button onClick={this.removeTodo.bind(this, todo.id)}>Delete</button> </td>     </tr>)}
-                </tbody>
+                  <tbody>
+                  {todos.map((todo) => <tr className={CompareDates(todo.schedule)}><td key={todo.id}>{todo.name}</td><td>{todo.owner}</td><td>{(new Date(todo.schedule)).toLocaleDateString()}</td> <td><button onClick={this.removeTodo.bind(this, todo.id)}>Done</button> </td></tr>)}
+                  </tbody>
               </table>
             </div>
             <br/><br/><br/><br/>
 
             <form className="form-inline text-center"  ref="todoForm" action="/action_page.php">
-            <h4>Fill Task and Responsible Person. </h4>
+            <h4>Fill Task, Responsible and Schedule: </h4>
               <div className="form-group">
                 <label for="name">Description:</label>
                 <input type="text" ref="name" placeholder="Description" />
