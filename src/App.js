@@ -62,7 +62,7 @@ class App extends Component {
       // New listing after DB transaction
 
       
-    setTimeout(function(){for(var i = 0 ; i < 100000; i++);},1000);
+    setTimeout(function(){
     fetch('list',{method: 'GET'})
         .then(function(response){
           response.json()
@@ -72,7 +72,9 @@ class App extends Component {
               todos: data
              })
           })
-        })
+        })},
+        1500
+    );
     
     
   
@@ -129,7 +131,7 @@ class App extends Component {
     
     // New listing after DB transaction
     
-    setTimeout(function(){for(var i = 0 ; i < 100000; i++){ let a = 0 };},1000);
+    setTimeout(function(){
     fetch('list',{method: 'GET'})
         .then(function(response){
           response.json()
@@ -139,7 +141,9 @@ class App extends Component {
               todos: data
              })
           })
-        })
+        })},
+        1500
+    );
     
 
     this.refs.todoForm.reset();
