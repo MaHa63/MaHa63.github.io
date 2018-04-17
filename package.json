@@ -15,7 +15,9 @@
     "react-scripts": "1.1.1"
   },
   "scripts": {
-    "start": "concurrently \"node back-end/src/Server.js\" \"npm run build\"",
+    "start":"node back-end/src/Server.js",
+    "start-dev": "concurrently \"node back-end/src/Server.js\" \"npm run build\"",
+    "heroku-postbuild": "react-scripts build",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
